@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 
 class TodoItem extends Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class TodoItem extends Component {
   render() {
     const { content } = this.props
     return (
-      <div onClick={ this.deleteItem }>{ content }</div>
+      <li onClick={ this.deleteItem }>{ content }</li>
     )
   }
 
@@ -18,6 +19,16 @@ class TodoItem extends Component {
     const { del, index } = this.props
     del(index)
   }
+}
+
+TodoItem.propTypes = {
+  content: PropTypes.string,
+  del: PropTypes.func,
+  index: PropTypes.number
+}
+
+TodoItem.defaultProps = {
+  content: ''
 }
 
 export default TodoItem
