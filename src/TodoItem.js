@@ -8,6 +8,14 @@ class TodoItem extends Component {
     this.deleteItem = this.deleteItem.bind(this)
   }
 
+  shouldComponentUpdate(nextProps) {
+    if (nextProps.content !== this.props.content) {
+      return true
+    } else {
+      return false
+    }
+  }
+
   render() {
     const { content } = this.props
     return (
