@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
+import { actionCreators } from './store'
+
 import {
   HeaderWrapper,
   Logo,
@@ -12,16 +15,6 @@ import {
 } from './style';
 
 class Header extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      focused: false,
-    };
-    this.inputFocus = this.inputFocus.bind(this);
-    this.inputBlur = this.inputBlur.bind(this);
-  }
-
   render() {
     return (
       <HeaderWrapper>
@@ -34,16 +27,16 @@ class Header extends Component {
           <SearchWrapper>
             <CSSTransition
               timeout={280}
-              in={this.state.focused}
+              in={this.props.focused}
               classNames="slide"
             >
               <NavSearch
-                className={this.state.focused ? 'focused' : ''}
-                onFocus={this.inputFocus}
-                onBlur={this.inputBlur}
+                className={this.props.focused ? 'focused' : ''}
+                onFocus={this.props.inputFocus}
+                onBlur={this.props.inputBlur}
               ></NavSearch>
             </CSSTransition>
-            <i className={this.state.focused ? 'iconfont focused' : 'iconfont'}>
+            <i className={this.props.focused ? 'iconfont focused' : 'iconfont'}>
               &#xe63e;
             </i>
           </SearchWrapper>
@@ -55,18 +48,23 @@ class Header extends Component {
       </HeaderWrapper>
     );
   }
-
-  inputFocus() {
-    this.setState({
-      focused: true,
-    });
-  }
-
-  inputBlur() {
-    this.setState({
-      focused: false,
-    });
-  }
 }
 
-export default Header;
+const mapState = (state) => {
+  return {
+    focused: state.header.focused,
+  };
+};
+
+const mapDispatch = (dispatch) => {
+  return {
+    inputFocus() {
+      dispatch(actionCreators.focus());
+    },
+    inputBlur() {
+      dispatch(actionCreators.blur());
+    },
+  };
+};
+
+export default connect(mapState, mapDispatch)(Header);
