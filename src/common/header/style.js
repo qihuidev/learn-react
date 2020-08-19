@@ -7,8 +7,7 @@ export const HeaderWrapper = styled.div`
   border-bottom: 1px solid #f0f0f0;
 `;
 
-export const Logo = styled.a`
-  display: block;
+export const Logo = styled.div`
   position: absolute;
   top: 0;
   left: 0;
@@ -24,39 +23,47 @@ export const Nav = styled.div`
   margin: 0 auto;
   padding-right: 100px;
   box-sizing: border-box;
-`;
-
-export const NavItem = styled.div`
-  line-height: 58px;
-  padding: 0 15px;
-  font-size: 17px;
-  color: #333;
-  &.left {
+  a {
+    color: #333;
+    font-size: 17px;
+    padding: 0 15px;
+    line-height: 58px;
+  }
+  .left {
     float: left;
   }
-  &.right {
+  .right {
     float: right;
     color: #969696;
   }
-  &.active {
+  .active {
     color: #ea6f5a;
   }
+`;
+
+export const NavItem = styled.div`
+  cursor: pointer;
+  font-size: 17px;
+  padding: 0 15px;
+  line-height: 58px;
 `;
 
 export const SearchWrapper = styled.div`
   float: left;
   position: relative;
+  height: 100%;
+  margin-left: 20px;
   .iconfont {
     position: absolute;
-    top: 10px;
-    right: 0;
-    width: 38px;
-    height: 38px;
+    top: 12px;
+    right: 2px;
+    width: 34px;
+    height: 34px;
     color: #969696;
     font-size: 18px;
-    line-height: 38px;
+    line-height: 34px;
     text-align: center;
-    border-radius: 38px;
+    border-radius: 34px;
     &.focused {
       color: #fff;
       background-color: #777;
@@ -74,8 +81,7 @@ export const NavSearch = styled.input.attrs({
   color: #666;
   font-size: 14px;
   padding: 0 44px 0 20px;
-  margin-top: 10px;
-  margin-left: 20px;
+  margin: 10px 0;
   border-radius: 20px;
   box-sizing: border-box;
   background-color: #eee;
@@ -99,6 +105,43 @@ export const NavSearch = styled.input.attrs({
   }
 `;
 
+export const SearchInfo = styled.div`
+  position: absolute;
+  top: 58px;
+  left: 0;
+  width: 340px;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #fff;
+  box-shadow: 1px 2px 10px 0 rgba(0, 0, 0, .18);
+`;
+
+export const SearchInfoTitle = styled.div`
+  color: #999;
+  font-size: 14px;
+`;
+
+export const SearchInfoSwitch = styled.div`
+  float: right;
+  cursor: pointer;
+`;
+
+export const SearchInfoList = styled.div`
+  overflow: hidden;
+  margin-top: 18px;
+`;
+
+export const SearchInfoItem = styled.div`
+  float: left;
+  color: #969696;
+  padding: 5px;
+  font-size: 13px;
+  cursor: pointer;
+  border-radius: 3px;
+  margin: 0 10px 15px 0;
+  border: 1px solid #ddd;
+`;
+
 export const Addition = styled.div`
   position: absolute;
   top: 0;
@@ -108,6 +151,7 @@ export const Addition = styled.div`
 
 export const Button = styled.div`
   float: right;
+  cursor: pointer;
   font-size: 14px;
   padding: 0 20px;
   margin-top: 10px;

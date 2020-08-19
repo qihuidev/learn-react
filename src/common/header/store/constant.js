@@ -1,2 +1,6 @@
-export const FOCUS = 'header/focus'
-export const BLUR = 'header/blur'
+export const FOCUS = 'header/FOCUS'
+export const BLUR = 'header/BLUR'
+export const CHANGE_LIST = 'header/CHANGE_LIST'
+export const MOUSE_ENTER = 'header/MOUSE_ENTER'
+export const MOUSE_LEAVE = 'header/MOUSE_LEAVE'
+export const CHANGE_PAGE = 'header/CHANGE_PAGE'
